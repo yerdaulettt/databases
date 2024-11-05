@@ -57,21 +57,17 @@ employees e cross join departments d where e.department_id = d.department_id;
 
 -- Task 4
 select e.first_name, e.last_name, d.department_id, d.department_name from
-employees e join departments d on employees.department_id = departments.department_id;
+employees e join departments d on e.department_id = d.department_id
+where d.department_id = 80 or d.department_id = 40;
 
 -- Task 5
-select e.first_name, e.last_name, d.department_id, d.department_name from
-employees e join departments d on employees.department_id = departments.department_id
-where departments.department_id = 1 or departments.department_id = 4;
-
--- Task 6
 select e.first_name, e.last_name, d.department_name, l.city, l.state_province from
 employees e join departments d on e.department_id = d.department_id
 join locations l on d.location_id = l.location_id;
 
--- Task 7
+-- Task 6
 select * from departments left outer join employees using (department_id);
 
--- Task 8
+-- Task 7
 select e.first_name, e.last_name, e.department_id, d.department_name from
 departments d right outer join employees e on d.department_id = e.department_id;
